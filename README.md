@@ -31,6 +31,27 @@ You will also need the following files placed in appropriate folders (or update 
 - `Zheng68K.h5ad` or your own `.h5ad` file → `./setting_data/`
 
 ---
+## 📁 Required Files
+
+To run fine-tuning and evaluation, please make sure the following files are present in the correct directories:
+
+./weight/
+├── panglao_pretrain.pth
+
+./setting_data/
+├── Zheng68K.h5ad
+├── panglao_1000.h5ad
+
+kotlin
+Copy
+Edit
+
+These files are **not included** in this repository due to size or licensing restrictions.
+
+To obtain the files, please contact:
+
+📧 **fionafyang@tencent.com**
+
 
 ## 🚀 Usage
 
@@ -42,7 +63,6 @@ python finetune_updatev4.py \
   --model_path "./weight/panglao_pretrain.pth" \
   --log_dir "./logs" \
   --epochs 10 \
-  --use_tensorboard
 ```
 
 TensorBoard logs will be saved to the specified `log_dir`. You can view them with:
@@ -58,8 +78,7 @@ tensorboard --logdir ./logs
 python predict_updatedv1.py \
   --data_path "./setting_data/your_test_data.h5ad" \
   --model_path "./weight/finetuned_model.pth" \
-  --save_path "./prediction_outputs/" \
-  --unassign_thres 0.5
+  --label_dict_dir "./label_dict" \
 ```
 
 This will output predicted labels in `.h5ad` format under `prediction_outputs/`.
@@ -71,11 +90,11 @@ This will output predicted labels in `.h5ad` format under `prediction_outputs/`.
 You can explore and visualize results with:
 
 ```bash
+# Custom cell-type-wise accuracy and plots
+python scripts4analysis_visualize/multiumap.py
+
 # Summarize attention scores (optional)
 python attn_sum_save.py
-
-# Custom cell-type-wise accuracy and plots
-python scripts4analysis_visualize/plot_summary.py
 ```
 
 These scripts support:
