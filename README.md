@@ -28,7 +28,7 @@ pip install -r requirements_update.txt
 
 You will also need the following files placed in appropriate folders (or update paths in scripts accordingly):
 - `panglao_pretrain.pth` → `./weight/`
-- `Zheng68K.h5ad` or your own `.h5ad` file → `./setting_data/`
+- `panglao_10000.h5ad` and `gene2vec_16906.npy` file → `./setting_data/`
 
 ---
 ## 📁 Required Files
@@ -42,6 +42,7 @@ To run fine-tuning and evaluation, please make sure the following files are pres
 ./setting_data/
 ├── Zheng68K.h5ad
 └── panglao_1000.h5ad
+└── gene2vec_16906.npy
 ```
 These files are **not included** in this repository due to size or licensing restrictions.
 
