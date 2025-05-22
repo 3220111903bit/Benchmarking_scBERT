@@ -35,17 +35,14 @@ You will also need the following files placed in appropriate folders (or update 
 
 To run fine-tuning and evaluation, please make sure the following files are present in the correct directories:
 
+```
 ./weight/
 └── panglao_pretrain.pth
 
 ./setting_data/
 ├── Zheng68K.h5ad
 └── panglao_1000.h5ad
-
-kotlin
-Copy
-Edit
-
+```
 These files are **not included** in this repository due to size or licensing restrictions.
 
 To obtain the files, please contact:
